@@ -6,7 +6,8 @@ window.onload = () => {
   // We'll add an event listener to the submit button so we can prevent the window from reloading when we click it.
   const submitButton = document.getElementById("submit-button").addEventListener("click", event => {
     event.preventDefault(),
-    sayHi()
+    // this next line calls the sayHi function & passes it the value of the name input on the form from the target value of the event that's called when the form is submitted.
+    sayHi(event.target.form.name.value)
   })
 }
 
@@ -49,8 +50,8 @@ const setInputFieldValue = (val) => {
 
 
 // 5 - This function uses the field input to say hello to a name given by the user.
-const sayHi = () => {
-  greetingString = "Hi, " + inputFieldValue + "!"
+const sayHi = (data) => {
+  greetingString = "Hi, " + data + "!"
 
   return console.log(greetingString)
 }
